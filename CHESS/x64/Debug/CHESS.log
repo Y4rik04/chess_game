@@ -1,0 +1,5 @@
+﻿  chess.cpp
+D:\Програмування\Myprojects\CHESS\CHESS\chess.cpp(319,10): warning C4101: s: неиспользованная локальная переменная
+  main.cpp
+  Создание кода...
+  CHESS.vcxproj -> D:\Програмування\Myprojects\CHESS\x64\Debug\CHESS.exe
