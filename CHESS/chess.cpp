@@ -86,7 +86,7 @@ void Board::printBoard() //принт доски
 	cout << "   y: 0  1  2  3  4  5  6  7 " << endl << "x:" << endl;
 	for (int i = 0; i < 8; i++)
 	{
-		cout << " " << i << "   ";
+		cout << "  " << i << "  ";
 		for (int j = 0; j < 8; j++)
 		{
 			Piece p = square[i][j].getPiece();
@@ -106,7 +106,7 @@ void Board::printBoard() //принт доски
 				break;
 			case PAWN: (c == WHITE) ? cout << " P " : cout << " p ";
 				break;
-			case EMPTY: cout << " " << "\21" << " ";
+			case EMPTY: cout << "  " << " ";
 				break;
 			default: cout << "SOMETHING";
 				break;
