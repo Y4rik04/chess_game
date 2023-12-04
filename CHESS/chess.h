@@ -51,8 +51,5 @@ public:
 	}
 	void setSquare(Square* s, int x, int y) {
 		square[x][y] = *s;
-	}
-	
-
-	
+	}	
 };

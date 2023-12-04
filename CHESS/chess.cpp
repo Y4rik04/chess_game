@@ -39,7 +39,7 @@ void Square::setPieceAndColor(Piece p, Color c)
 }
 
 
-void Board::setBoard()  //создание доски
+void Board::setBoard()  //функция создания доски
 {
 	square[0][0].setPieceAndColor(ROOK, WHITE);
 	square[1][0].setPieceAndColor(KNIGHT, WHITE);
@@ -81,7 +81,7 @@ void Board::setBoard()  //создание доски
 }
 
 
-void Board::printBoard() //принт доски
+void Board::printBoard() //функция принта доски
 {
 	cout << "   y: 0  1  2  3  4  5  6  7 " << endl << "x:" << endl;
 	for (int i = 0; i < 8; i++)
@@ -167,7 +167,7 @@ bool Board::doMove() //делаем ход фигурой
 }
 
 
-bool Board::playGame()
+bool Board::playGame() //начинаем игру
 {
 	system("cls");
 	printBoard();
@@ -175,7 +175,8 @@ bool Board::playGame()
 
 }
 
-bool Board::movePawn(Square* thisPawn, Square* thatSpace) {
+bool Board::movePawn(Square* thisPawn, Square* thatSpace) 
+{
 	
 	bool invalid = false;
 	int pawnX = thisPawn->getX();
@@ -184,7 +185,7 @@ bool Board::movePawn(Square* thisPawn, Square* thatSpace) {
 	int thatY = thatSpace->getY();
 
 
-	if (thisPawn->getColor() == WHITE)
+	if (thisPawn->getColor() == WHITE) //движение пешки
 	{
 
 		if (pawnX == thatX && thatY == pawnY + 1 && thatSpace->getColor() == NONE)
@@ -227,7 +228,8 @@ bool Board::movePawn(Square* thisPawn, Square* thatSpace) {
 }
 
 
-bool Board::moveKing(Square* thisKing, Square* thatSpace) {
+bool Board::moveKing(Square* thisKing, Square* thatSpace) //движение короля
+{
 
 	if (abs(thatSpace->getX() - thisKing->getX()) == 1)
 		if (abs(thatSpace->getY() - thisKing->getY()) == 1)
@@ -239,7 +241,8 @@ bool Board::moveKing(Square* thisKing, Square* thatSpace) {
 		else return false;
 	else return false;
 }
-bool Board::moveQueen(Square* thisQueen, Square* thatSpace) { 
+bool Board::moveQueen(Square* thisQueen, Square* thatSpace) //движение ферзя
+{ 
 
 	int queenX = thisQueen->getX();
 	int queenY = thisQueen->getY();
@@ -308,7 +311,8 @@ bool Board::moveQueen(Square* thisQueen, Square* thatSpace) {
 }
 
 
-bool Board::moveBishop(Square* thisBishop, Square* thatSpace) { 
+bool Board::moveBishop(Square* thisBishop, Square* thatSpace) //движение слона
+{ 
 	int bishopX = thisBishop->getX();
 	int bishopY = thisBishop->getY();
 	int thatX = thatSpace->getX();
@@ -342,7 +346,7 @@ bool Board::moveBishop(Square* thisBishop, Square* thatSpace) {
 		return false;
 	}
 }
-bool Board::moveKnight(Square* thisKnight, Square* thatSpace)
+bool Board::moveKnight(Square* thisKnight, Square* thatSpace) //движение коня
 {
 	int knightX = thisKnight->getX();
 	int knightY = thisKnight->getY();
@@ -361,7 +365,7 @@ bool Board::moveKnight(Square* thisKnight, Square* thatSpace)
 	}
 }
 
-bool Board::moveRook(Square* thisRook, Square* thatSpace)
+bool Board::moveRook(Square* thisRook, Square* thatSpace) //движение ладьи
 {
 	int rookX = thisRook->getX();
 	int rookY = thisRook->getY();
@@ -410,10 +414,11 @@ bool Board::moveRook(Square* thisRook, Square* thatSpace)
 }
 
 
-bool Board::makeMove(int x1, int y1, int x2, int y2) {
+bool Board::makeMove(int x1, int y1, int x2, int y2) //делаем движение
+{
 	if (x1 < 0 || x1>7 || y1 < 0 || y1>7 || x2 < 0 || x2>7 || y2 < 0 || y2>8)
 	{
-		cout << "One of your inputs was our of bounds" <<endl;
+		cout << "One of your inputs was out of bounds" <<endl;
 		return false;
 	}
 	Square* src = getSquare(x1, y1);
