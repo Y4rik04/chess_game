@@ -39,7 +39,7 @@ void Square::setPieceAndColor(Piece p, Color c)
 }
 
 
-void Board::setBoard()
+void Board::setBoard()  //создание доски
 {
 	square[0][0].setPieceAndColor(ROOK, WHITE);
 	square[1][0].setPieceAndColor(KNIGHT, WHITE);
@@ -59,13 +59,13 @@ void Board::setBoard()
 	square[6][7].setPieceAndColor(KNIGHT, BLACK);
 	square[7][7].setPieceAndColor(ROOK, BLACK);
 
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++) //вставляем пешки на доску
 	{
 		square[i][1].setPieceAndColor(PAWN, WHITE);
 		square[i][6].setPieceAndColor(PAWN, BLACK);
 
 	}
-	for (int i = 2; i < 6; i++)
+	for (int i = 2; i < 6; i++) //заполняем пустие клетки
 	{
 		for (int j = 0; j < 8; j++)
 			square[j][i].setPieceAndColor(EMPTY, NONE);
@@ -81,10 +81,8 @@ void Board::setBoard()
 }
 
 
-void Board::printBoard() {
-
-	
-	
+void Board::printBoard() //принт доски
+{
 	cout << "   y: 0  1  2  3  4  5  6  7 " << endl << "x:" << endl;
 	for (int i = 0; i < 8; i++)
 	{
@@ -94,7 +92,7 @@ void Board::printBoard() {
 			Piece p = square[i][j].getPiece();
 			Color c = square[i][j].getColor();
 
-			switch (p) //BIG letters for white figures, small for black
+			switch (p) //большие букви - белые, маленькие - черные фигуры
 			{
 			case KING: (c == WHITE) ? cout << " K ":  cout << " k ";
 				break;
@@ -113,14 +111,14 @@ void Board::printBoard() {
 			default: cout << "SOMETHING";
 				break;
 			}
-
 		}
 		cout << endl;
 	}
 
 }
 
-bool Board::doMove() {
+bool Board::doMove() //делаем ход фигурой
+{
 	string move;
 	int x1, x2, y1, y2;
 	bool stop = false;

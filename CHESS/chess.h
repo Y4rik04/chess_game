@@ -22,7 +22,7 @@ public:
 	
 	void setSpace(Square*);
 	void setEmpty();
-	void setPieceAndColor(Piece, Color);
+	void setPieceAndColor(Piece, Color);  
 	
 	
 	Square();
@@ -42,7 +42,7 @@ private:
 	bool makeMove(int x1, int y1, int x2, int y2);
 	void printBoard();
 public:
-	void setBoard();
+	void setBoard();  
 	bool playGame();
 	bool doMove();
 
