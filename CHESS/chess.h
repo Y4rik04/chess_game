@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-enum Piece { KING, QUEEN, BISHOP, KNIGHT, ROOK, PAWN, EMPTY };
-enum Color { WHITE, BLACK, NONE };
+enum Piece { KING, QUEEN, BISHOP, KNIGHT, ROOK, PAWN, EMPTY }; //перелік фігур
+enum Color { WHITE, BLACK, NONE }; //перелік кольорів
 
 class Square 
 {
@@ -20,12 +20,12 @@ public:
 	int getX() { return x; }
 	int getY() { return y; }
 	
-	void setSpace(Square*);
-	void setEmpty();
-	void setPieceAndColor(Piece, Color);  
+	void setSpace(Square*); //встановлення кольору і фігури в поточній клітинці, використовуючи інформацію з іншої
+	void setEmpty(); //встановлення кольору та фігури в пусті місця
+	void setPieceAndColor(Piece, Color);  //встановлення фігури та кольору в поточній клітинки
 	
 	
-	Square();
+	Square();//конструктор
 };
 
 class Board 
@@ -39,12 +39,12 @@ private:
 	bool moveRook(Square* thisRook, Square* tuda);
 	bool moveBishop(Square* thisBishop, Square* tuda);
 	bool moveKnight(Square* thisKnight, Square* tuda);
-	bool makeMove(int x1, int y1, int x2, int y2);
-	void printBoard();
+	bool makeMove(int x1, int y1, int x2, int y2); //перевірка і виконання ходу
+	void printBoard(); //виведення поточного стану дошки
 public:
-	void setBoard();  
-	bool playGame();
-	bool doMove();
+	void setBoard();  //заповнення дошки фігурами та пешками
+	bool playGame(); //початок гри та визов методу doMove()
+	bool doMove(); //запит на хід та його виконання
 
 	Square* getSquare(int x, int y) {
 		return &square[x][y];

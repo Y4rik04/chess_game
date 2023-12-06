@@ -2,7 +2,7 @@
 #include <string>
 #include "chess.h"
 using namespace std;
-int main()
+int main() //основний програма для запуску гри
 {
 	Board b;
 	string start;
@@ -17,6 +17,6 @@ int main()
 		cin >> start;
 		if (start!= "y")
 			game = false;
-	}
+	}	
 	return 0;
 }
