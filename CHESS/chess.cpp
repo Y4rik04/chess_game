@@ -194,8 +194,7 @@ bool Board::movePawn(Square* thisPawn, Square* thatSpace) //рух пешки
 	int thatX = thatSpace->getX();
 	int thatY = thatSpace->getY();
 
-
-	if (thisPawn->getColor() == WHITE) 
+	if (thisPawn->getColor() == WHITE) //логіка ходу пішки
 	{
 
 		if (pawnX == thatX && thatY == pawnY + 1 && thatSpace->getColor() == NONE)
@@ -240,7 +239,7 @@ bool Board::movePawn(Square* thisPawn, Square* thatSpace) //рух пешки
 bool Board::moveKing(Square* thisKing, Square* thatSpace) //рух короля
 {
 
-	if (abs(thatSpace->getX() - thisKing->getX()) == 1)
+	if (abs(thatSpace->getX() - thisKing->getX()) == 1) //логіка ходу короля
 		if (abs(thatSpace->getY() - thisKing->getY()) == 1)
 		{
 			thatSpace->setSpace(thisKing);
@@ -258,12 +257,11 @@ bool Board::moveQueen(Square* thisQueen, Square* thatSpace) //рух ферзя
 	int queenY = thisQueen->getY();
 	int thatX = thatSpace->getX();
 	int thatY = thatSpace->getY();
-	//cout << "this";
 	int yIncrement;
 	int xIncrement;
 
 	bool invalid = false;
-	if (queenX != thatX || queenY != thatY)
+	if (queenX != thatX || queenY != thatY) //логіка ходу королеви
 	{
 
 		if (queenX == thatX)
@@ -327,7 +325,7 @@ bool Board::moveBishop(Square* thisBishop, Square* thatSpace) //рух слона
 	int thatY = thatSpace->getY();
 	bool invalid = false;
 	Square* s;
-	if (abs(bishopX - thatX) == abs(bishopY - thatY))
+	if (abs(bishopX - thatX) == abs(bishopY - thatY)) //логіка ходу слона
 	{
 		int xIncrement = (thatX - bishopX) / (abs(thatX - bishopX));
 		int yIncrement = (thatY - bishopY) / (abs(thatY - bishopY));
@@ -361,7 +359,7 @@ bool Board::moveKnight(Square* thisKnight, Square* thatSpace) //рух коня
 	int thatX = thatSpace->getX();
 	int thatY = thatSpace->getY();
 
-	if ((abs(knightX - thatX) == 2 && abs(knightY - thatY) == 1) || (abs(knightX - thatX) == 1 && abs(knightY - thatY) == 2))
+	if ((abs(knightX - thatX) == 2 && abs(knightY - thatY) == 1) || (abs(knightX - thatX) == 1 && abs(knightY - thatY) == 2)) //логіка ходу коня
 	{
 		thatSpace->setSpace(thisKnight);
 		thisKnight->setEmpty();
@@ -380,7 +378,7 @@ bool Board::moveRook(Square* thisRook, Square* thatSpace) //рух ладьи
 	int thatX = thatSpace->getX();
 	int thatY = thatSpace->getY();
 	bool invalid = false;
-	if (rookX != thatX || rookY != thatY)
+	if (rookX != thatX || rookY != thatY) //логіка ходу ладьи
 	{
 
 		if (rookX == thatX)
